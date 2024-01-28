@@ -1,3 +1,4 @@
+/* Estilos comunes para todos los tamaños de pantalla */
 h1 {
   margin: 0;
   padding: 20px 0;
@@ -6,15 +7,16 @@ h1 {
 }
 
 #flag-img {
-  width: 300px;
-  height: 200px;
+  width: 100%; /* Hacer la imagen responsive */
+  max-width: 600px; /* Establecer un ancho máximo para evitar que la imagen se agrande demasiado en pantallas grandes */
+  height: auto; /* Mantener la proporción */
   margin: 20px 0;
   border-radius: 10px;
   box-shadow: 0 0 10px #ccc;
 }
 
 #guess-input {
-  width: 300px;
+  width: 100%; /* Hacer el campo de entrada responsive */
   height: 40px;
   margin: 20px 0;
   padding: 0 10px;
@@ -23,10 +25,10 @@ h1 {
   font-size: 20px;
 }
 
-#guess-btn, #hint-btn, #next-btn, #dark-light-btn {
-  width: 150px;
+#guess-btn, #hint-btn, #next-btn, #dark-light-btn, #next-flag-btn {
+  width: 100%; /* Hacer los botones responsive */
   height: 40px;
-  margin: 20px 10px;
+  margin: 10px 0; /* Margen reducido para botones */
   border-radius: 20px;
   border: none;
   font-size: 20px;
@@ -35,39 +37,26 @@ h1 {
 }
 
 #guess-btn {
-  background-color: #28a745;
+  background-color: #28a745; /* Color verde para el botón de adivinar */
 }
 
 #hint-btn {
-  background-color: #007bff;
+  background-color: #007bff; /* Color azul para el botón de pista */
 }
 
 #next-btn {
-background-color: #CE8FFF;
+  background-color: #ce8fff; /* Color morado para el botón de siguiente */
 }
 
 #dark-light-btn {
-  background-color: #5F28FF;
+  background-color: #5f28ff; /* Color violeta para el botón de cambio de modo oscuro */
 }
-
 
 #result {
   margin: 20px 0;
   text-align: center;
   font-size: 24px;
   color: #333;
-}
-
-#next-flag-btn {
-  width: 150px;
-  height: 40px;
-  margin: 20px 10px;
-  border-radius: 20px;
-  border: none;
-  font-size: 20px;
-  color: #fff;
-  cursor: pointer;
-  background-color: #17a2b8;
 }
 
 body {
@@ -77,25 +66,27 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh; /* Cambiado a min-height para pantallas más pequeñas */
 }
 
 body.dark {
-background-color: #222;
-color: #f2f2f2;
+  background-color: #222;
+  color: #f2f2f2;
 }
 
 .dark-mode-btn {
-background-color: #f2f2f2;
-color: #222;
-}
-.dark {
-    color: white;
+  background-color: #f2f2f2;
+  color: #222;
 }
 
-.btn-container{
-    display: flex;
-    justify-content: space-between; /* para distribuir los botones de forma equitativa :) */
+.dark {
+  color: white;
+}
+
+.btn-container {
+  display: flex;
+  flex-wrap: wrap; /* Permitir que los botones se envuelvan en la siguiente línea en pantallas pequeñas */
+  justify-content: space-evenly; /* Centrar los botones en pantallas pequeñas */
 }
 
 nav {
@@ -112,7 +103,8 @@ nav ul {
 }
 
 nav li {
-  display: inline-block;
+  display: block; /* Cambiado a block para un apilamiento mejor en pantallas pequeñas */
+  margin-bottom: 10px; /* Agregado espacio entre elementos de la lista */
 }
 
 nav li a {
@@ -123,9 +115,21 @@ nav li a {
   font-weight: bold;
   font-size: 18px;
   letter-spacing: 1px;
+  display: block; /* Cambiado a block para un apilamiento mejor en pantallas pequeñas */
 }
 
 nav li a:hover {
   background-color: #f2f2f2;
   border-radius: 4px;
+}
+
+/* Media query para pantallas más pequeñas */
+@media only screen and (max-width: 600px) {
+  #flag-img {
+    margin: 10px 0; /* Ajustado el margen para pantallas más pequeñas */
+  }
+
+  #guess-btn, #hint-btn, #next-btn, #dark-light-btn, #next-flag-btn {
+    margin: 10px 0; /* Ajustado el margen para pantallas más pequeñas */
+  }
 }
