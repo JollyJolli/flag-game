@@ -1,39 +1,47 @@
 <!DOCTYPE html>
-<html>
-  <meta property="og:title" content="Adivina el pais de la bandera!" />
-<meta property="og:url" content="https://flags.formen.ml" />
-<meta property="og:description" content="Conoces todas las banderas? Demuestralo." />
-<meta property="og:image" content="https://flagcdn.com/mx.png">
-<meta name="theme-color" content="#f2f2f2">
-  <head>
-    <title>Adivina la bandera.</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <nav>
-  <ul>
-    <li><a href="/index.html">Banderas</a></li>
-    <li><a href="/capitales/game.html">Capitales</a></li>
-  </ul>
-</nav>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Adivina el país de la bandera!" />
+  <meta property="og:url" content="https://flags.formen.ml" />
+  <meta property="og:description" content="¿Conoces todas las banderas? ¡Demuéstralo!" />
+  <meta property="og:image" content="https://flagcdn.com/mx.png">
+  <meta name="theme-color" content="#f2f2f2">
+  
+  <link rel="stylesheet" href="style.css" type="text/css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  
+  <title>Adivina la bandera</title>
+</head>
+<body onload="generateFlag()">
 
-  <body onload="generateFlag()">
+  <header role="banner">
     <h1>Adivina de qué país es esta bandera</h1>
     <img id="flag-img" width="30" alt="Bandera a adivinar">
-    <br><p id="score">Score: 0</p></br>
-
-    <br>
-    <label for="guess-input">¿Que pais crees que es?</label>
-    <input type="text" id="guess-input">
-    <br>
+    <p id="score">Score: 0</p>
+  </header>
+  
+  <main role="main">
+    <section>
+      <label for="guess-input">¿Qué país crees que es?</label>
+      <input type="text" id="guess-input">
+    </section>
+    
     <div class="btn-container">
-    <button class="green-btn" id="guess-btn" onclick="guess()">Adivinar</button>
-    <button class="green-btn" id="hint-btn" onclick="showHint()">Ver pista</button>
-    <button class="green-btn" id="next-btn" onclick="generateFlag()">Siguiente</button>
-    <button id="dark-light-btn" class="green-btn" onclick="toggleDarkLight()">Cambiar tema</button>
-</div>
-
+      <button class="green-btn" id="guess-btn" onclick="guess()">Adivinar</button>
+      <button class="green-btn" id="hint-btn" onclick="showHint()">Ver pista</button>
+      <button class="green-btn" id="next-btn" onclick="generateFlag()">Siguiente</button>
+      <button id="dark-light-btn" class="green-btn" onclick="toggleDarkLight()">Cambiar tema</button>
+    </div>
+    
     <p id="result"></p>
-    <div class="text-center"></div>
-  </body>
-  <script src="game.js"></script>
+  </main>
+  
+  <footer role="contentinfo">
+    <p>&copy; 2024 Formen | Adivina la Bandera</p>
+  </footer>
+  
+  <script src="game.js" type="text/javascript"></script>
+</body>
 </html>
