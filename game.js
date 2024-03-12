@@ -361,12 +361,17 @@ function showHint() {
   if (hint === '') {
     hint = countryName[0];
     for (let i = 1; i < countryName.length - 1; i++) {
-      hint += '*';
+      if (Math.random() < 0.5) { // Probabilidad del 50% de ocultar la letra
+        hint += '*';
+      } else {
+        hint += countryName[i];
+      }
     }
     hint += countryName[countryName.length - 1];
   }
   document.getElementById('result').innerHTML = 'Pista: ' + hint;
 }
+
 
 let currentTheme = 'light'; // Cambiado a light por defecto
 
