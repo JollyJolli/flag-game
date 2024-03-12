@@ -9,21 +9,17 @@
   <meta property="og:image" content="https://flagcdn.com/mx.png">
   <meta name="theme-color" content="#f2f2f2">
   
-  <script src="https://kit.fontawesome.com/bc3d0bf176.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="style.css" type="text/css">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   
   <title>Adivina la bandera</title>
 </head>
-<body onload="showNewDesign(); generateFlag()">
+<body onload="generateFlag()">
 
   <header role="banner">
     <h1>Adivina de qué país es esta bandera</h1>
-    <img id="flag-img" alt="Bandera a adivinar">
+    <img id="flag-img" width="30" alt="Bandera a adivinar">
     <p id="score">Score: 0</p>
-    <button id="toggle-theme-btn" onclick="toggleDarkLight()">
-      <i class="fas fa-sun"></i><span id="dark-light-text">Modo Claro</span>
-    </button>
   </header>
   
   <main role="main">
@@ -33,9 +29,10 @@
     </section>
     
     <div class="btn-container">
-      <button class="green-btn" id="guess-btn" onclick="guess()"><i class="fas fa-question"></i></button>
-      <button class="green-btn" id="hint-btn" onclick="showHint()"><i class="fas fa-lightbulb"></i></button>
-      <button class="green-btn" id="next-btn" onclick="generateFlag()"><i class="fas fa-forward"></i></button>
+      <button class="green-btn" id="guess-btn" onclick="guess()">Adivinar</button>
+      <button class="green-btn" id="hint-btn" onclick="showHint()">Ver pista</button>
+      <button class="green-btn" id="next-btn" onclick="generateFlag()">Siguiente</button>
+      <button id="dark-light-btn" class="green-btn" onclick="toggleDarkLight()">Cambiar tema</button>
     </div>
     
     <p id="result"></p>

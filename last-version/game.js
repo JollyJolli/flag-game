@@ -326,7 +326,6 @@ function generateFlag() {
   hint = '';
   document.getElementById('next-btn').onclick = generateFlag;
 }
-
 // Funcion para actualizar el OG:image
 function updateOGImage() {
   let currentFlag = document.getElementById("flag-img").src;
@@ -368,61 +367,20 @@ function showHint() {
   document.getElementById('result').innerHTML = 'Pista: ' + hint;
 }
 
-let currentTheme = 'light'; // Cambiado a light por defecto
+let currentTheme = 'light';
 
 function toggleDarkLight() {
-  const body = document.body;
-  const darkLightBtn = document.getElementById('dark-light-btn');
+  let body = document.getElementsByTagName("body")[0];
+  let currentTheme = body.className;
+  body.className = currentTheme === 'dark' ? 'light' : 'dark';
+  let btn = document.getElementById("dark-light-btn");
+  btn.innerHTML = currentTheme === 'light' ? 'Modo claro' : 'Modo oscuro';
+}
 
-  // Toggle the 'dark' class on the body element
-  body.classList.toggle('dark');
-
-  // Update currentTheme based on the body class
-  currentTheme = body.classList.contains('dark') ? 'dark' : 'light';
-
-  // Get the icon and text elements of the dark-light button
-  const darkLightIcon = document.getElementById('dark-light-icon');
-  const darkLightText = document.getElementById('dark-light-text');
-
-  // Change the icon and text of the button according to the current theme
-  if (currentTheme === 'dark') {
-    darkLightIcon.className = 'fas fa-moon'; // Change the icon to moon
-    darkLightText.textContent = 'Modo Oscuro'; // Change the text to 'Modo Oscuro'
-  } else {
-    darkLightIcon.className = 'fas fa-sun'; // Change the icon to sun
-    darkLightText.textContent = 'Modo Claro'; // Change the text to 'Modo Claro'
+const input = document.getElementById("guess-input");
+input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    document.getElementById("guess-btn").click();
   }
-}
-
-// Call toggleDarkLight() once to set the initial theme
-toggleDarkLight();
-
-
-function showNewDesign() {
-  const body = document.body;
-  const overlay = document.createElement('div');
-  overlay.style.position = 'fixed';
-  overlay.style.top = '0';
-  overlay.style.left = '0';
-  overlay.style.width = '100%';
-  overlay.style.height = '100%';
-  overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-  overlay.style.display = 'flex';
-  overlay.style.alignItems = 'center';
-  overlay.style.justifyContent = 'center';
-  overlay.style.zIndex = '9999';
-
-  const newText = document.createElement('h1');
-  newText.textContent = 'NUEVO DISEÑO';
-  newText.style.color = '#9C27B0'; // Morado
-  newText.style.fontSize = '72px';
-  newText.style.animation = 'explode 1s forwards';
-  newText.style.textAlign = 'center';
-
-  overlay.appendChild(newText);
-  body.appendChild(overlay);
-
-  setTimeout(() => {
-    body.removeChild(overlay);
-  }, 1000);
-}
+});

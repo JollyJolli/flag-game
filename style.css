@@ -1,22 +1,68 @@
-/* Estilos comunes para todos los tamaños de pantalla */
+/* Estilos mejorados para una apariencia más atractiva */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  border-radius: 0 0 20px 20px;
+}
+
 h1 {
   margin: 0;
-  padding: 20px 0;
-  text-align: center;
   font-size: 36px;
 }
 
 #flag-img {
-  width: 100%; /* Hacer la imagen responsive */
-  max-width: 600px; /* Establecer un ancho máximo para evitar que la imagen se agrande demasiado en pantallas grandes */
-  height: auto; /* Mantener la proporción */
-  margin: 20px 0;
+  width: 100%;
+  max-width: 600px;
   border-radius: 10px;
-  box-shadow: 0 0 10px #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-#guess-input {
-  width: 100%; /* Hacer el campo de entrada responsive */
+#score {
+  margin-top: 10px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+/* Estilos para botones */
+.green-btn {
+  background-color: #4CAF50; /* Color verde */
+  color: white;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.green-btn:hover {
+  background-color: #45a049; /* Color verde más oscuro al pasar el mouse */
+}
+
+input[type="text"] {
+  width: 100%;
   height: 40px;
   margin: 20px 0;
   padding: 0 10px;
@@ -25,111 +71,109 @@ h1 {
   font-size: 20px;
 }
 
-#guess-btn, #hint-btn, #next-btn, #dark-light-btn, #next-flag-btn {
-  width: 100%; /* Hacer los botones responsive */
-  height: 40px;
-  margin: 10px 0; /* Margen reducido para botones */
-  border-radius: 20px;
-  border: none;
-  font-size: 20px;
-  color: #fff;
-  cursor: pointer;
-}
-
-#guess-btn {
-  background-color: #28a745; /* Color verde para el botón de adivinar */
-}
-
-#hint-btn {
-  background-color: #007bff; /* Color azul para el botón de pista */
-}
-
-#next-btn {
-  background-color: #ce8fff; /* Color morado para el botón de siguiente */
-}
-
-#dark-light-btn {
-  background-color: #5f28ff; /* Color violeta para el botón de cambio de modo oscuro */
-}
-
-#result {
+p#result {
   margin: 20px 0;
-  text-align: center;
   font-size: 24px;
-  color: #333;
 }
 
-body {
-  background-color: #f2f2f2;
-  font-family: Arial, sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh; /* Cambiado a min-height para pantallas más pequeñas */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  border-radius: 20px 20px 0 0;
 }
 
-body.dark {
-  background-color: #222;
-  color: #f2f2f2;
+footer p {
+  margin: 0;
 }
 
+/* Estilos para botón de tema oscuro */
+#toggle-theme-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.3s ease;
+}
+
+#toggle-theme-btn:hover {
+  transform: scale(1.1);
+}
+
+#toggle-theme-btn:focus {
+  border: none;
+}
+
+#toggle-theme-btn i {
+  color: #fff;
+  font-size: 24px;
+}
+
+/* Estilos específicos para modo oscuro */
 .dark-mode-btn {
-  background-color: #f2f2f2;
-  color: #222;
+  background-color: #f5f5f5;
+  color: #333;
 }
 
 .dark {
-  color: white;
+  color: #fff;
+  background-color: #222;
 }
 
-.btn-container {
-  display: flex;
-  flex-wrap: wrap; /* Permitir que los botones se envuelvan en la siguiente línea en pantallas pequeñas */
-  justify-content: space-evenly; /* Centrar los botones en pantallas pequeñas */
+.green-btn.dark {
+  background-color: #689f38;
 }
 
-nav {
-  background-color: #ccc;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-  float: right;
-  padding: 16px;
+.green-btn.dark:hover {
+  background-color: #558b2f;
 }
 
-nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+input[type="text"].dark {
+  background-color: #333;
+  color: #fff;
 }
 
-nav li {
-  display: block; /* Cambiado a block para un apilamiento mejor en pantallas pequeñas */
-  margin-bottom: 10px; /* Agregado espacio entre elementos de la lista */
+footer.dark {
+  background-color: #222;
 }
 
-nav li a {
-  color: #333;
-  text-align: center;
-  padding: 12px;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 18px;
-  letter-spacing: 1px;
-  display: block; /* Cambiado a block para un apilamiento mejor en pantallas pequeñas */
-}
-
-nav li a:hover {
-  background-color: #f2f2f2;
-  border-radius: 4px;
+footer.dark p {
+  color: #fff;
 }
 
 /* Media query para pantallas más pequeñas */
 @media only screen and (max-width: 600px) {
-  #flag-img {
-    margin: 10px 0; /* Ajustado el margen para pantallas más pequeñas */
+  header h1 {
+    font-size: 24px;
   }
 
-  #guess-btn, #hint-btn, #next-btn, #dark-light-btn, #next-flag-btn {
-    margin: 10px 0; /* Ajustado el margen para pantallas más pequeñas */
+  .btn-container {
+    flex-direction: column;
+    align-items: center;
   }
+
+  .green-btn {
+    width: 70%;
+    margin: 10px 0;
+  }
+
+  input[type="text"] {
+    width: 70%;
+  }
+
+  #toggle-theme-btn {
+    top: 10px;
+    right: 10px;
+  }
+}
+
+@keyframes explode {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(2); opacity: 0; }
 }
