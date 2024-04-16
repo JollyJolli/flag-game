@@ -401,33 +401,3 @@ function toggleDarkLight() {
 
 // Call toggleDarkLight() once to set the initial theme
 toggleDarkLight();
-
-
-function showNewDesign() {
-  const body = document.body;
-  const overlay = document.createElement('div');
-  overlay.style.position = 'fixed';
-  overlay.style.top = '0';
-  overlay.style.left = '0';
-  overlay.style.width = '100%';
-  overlay.style.height = '100%';
-  overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-  overlay.style.display = 'flex';
-  overlay.style.alignItems = 'center';
-  overlay.style.justifyContent = 'center';
-  overlay.style.zIndex = '9999';
-
-  const newText = document.createElement('h1');
-  newText.textContent = 'NUEVO DISEÑO';
-  newText.style.color = '#9C27B0'; // Morado
-  newText.style.fontSize = '72px';
-  newText.style.animation = 'explode 1s forwards';
-  newText.style.textAlign = 'center';
-
-  overlay.appendChild(newText);
-  body.appendChild(overlay);
-
-  setTimeout(() => {
-    body.removeChild(overlay);
-  }, 1000);
-}
